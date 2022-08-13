@@ -2844,8 +2844,8 @@ image_prompts = {
 # !! }}
 #@title Do the Run!
 #@markdown `n_batches` ignored with animation modes.
-display_rate = 20 #@param{type: 'number'}
-n_batches = 50 #@param{type: 'number'}
+display_rate = 0 #@param{type: 'number'}
+n_batches = 20 #@param{type: 'number'}
 
 if animation_mode == 'Video Input':
     steps = video_init_steps
