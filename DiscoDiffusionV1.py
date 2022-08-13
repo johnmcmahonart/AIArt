@@ -569,7 +569,11 @@ except:
         shutil.move('disco-diffusion/disco_xform_utils.py', 'disco_xform_utils.py')
     sys.path.append(PROJECT_DIR)
 
-import torch
+
+
+    import torch
+except:
+    pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/rocm5.1.1
 from dataclasses import dataclass
 from functools import partial
 import cv2
@@ -1855,6 +1859,7 @@ diff_model_map = {
     'watercolordiffusion': { 'downloaded': False, 'sha': 'a3e6522f0c8f278f90788298d66383b11ac763dd5e0d62f8252c962c23950bd6', 'uri_list': ['https://huggingface.co/KaliYuga/watercolordiffusion/resolve/main/watercolordiffusion.pt'] },
     'PulpSciFiDiffusion': { 'downloaded': False, 'sha': 'b79e62613b9f50b8a3173e5f61f0320c7dbb16efad42a92ec94d014f6e17337f', 'uri_list': ['https://huggingface.co/KaliYuga/PulpSciFiDiffusion/resolve/main/PulpSciFiDiffusion.pt'] },
     'secondary': { 'downloaded': False, 'sha': '983e3de6f95c88c81b2ca7ebb2c217933be1973b1ff058776b970f901584613a', 'uri_list': ['https://the-eye.eu/public/AI/models/v-diffusion/secondary_model_imagenet_2.pth', 'https://ipfs.pollinations.ai/ipfs/bafybeibaawhhk7fhyhvmm7x24zwwkeuocuizbqbcg5nqx64jq42j75rdiy/secondary_model_imagenet_2.pth'] },
+    'portraitv15':{'downloaded':True,'sha':'3bc39e28fd9690dafbbee83cc08d089a3640eca8ed4d14280c4a9d342c56fd7f','uri_list':['https://huggingface.co/felipe3dartist/portrait_generator_v1.5/ema_0.9999_165000.pt']},
 }
 
 kaliyuga_pixel_art_model_names = ['pixelartdiffusion_expanded', 'pixel_art_diffusion_hard_256', 'pixel_art_diffusion_soft_256', 'pixelartdiffusion4k', 'PulpSciFiDiffusion']
@@ -1941,7 +1946,7 @@ elif diffusion_model == '256x256_diffusion_uncond':
         'use_fp16': not useCPU,
         'use_scale_shift_norm': True,
     })
-elif diffusion_model == 'portrait_generator_v001':
+elif diffusion_model == 'portraitv15':
     model_config.update({
         'attention_resolutions': '32, 16, 8',
         'class_cond': False,
@@ -1958,6 +1963,7 @@ elif diffusion_model == 'portrait_generator_v001':
         'use_fp16': True,
         'use_scale_shift_norm': True,
     })
+
 else:  # E.g. A model finetuned by KaliYuga
     model_config.update({
           'attention_resolutions': '16',
