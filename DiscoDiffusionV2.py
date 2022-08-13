@@ -1810,7 +1810,7 @@ class SecondaryDiffusionImageNet2(nn.Module):
 #@markdown ####**Models Settings (note: For pixel art, the best is pixelartdiffusion_expanded):**
 diffusion_model = "portraitv15" #@param ["256x256_diffusion_uncond", "512x512_diffusion_uncond_finetune_008100", "portrait_generator_v001", "pixelartdiffusion_expanded", "pixel_art_diffusion_hard_256", "pixel_art_diffusion_soft_256", "pixelartdiffusion4k", "watercolordiffusion_2", "watercolordiffusion", "PulpSciFiDiffusion", "custom"]
 
-use_secondary_model = True #@param {type: 'boolean'}
+use_secondary_model = False #@param {type: 'boolean'}
 diffusion_sampling_mode = 'ddim' #@param ['plms','ddim']
 #@markdown #####**Custom model:**
 custom_path = '/content/drive/MyDrive/deep_learning/ddpm/ema_0.9999_058000.pt'#@param {type: 'string'}
@@ -1819,12 +1819,12 @@ custom_path = '/content/drive/MyDrive/deep_learning/ddpm/ema_0.9999_058000.pt'#@
 use_checkpoint = True #@param {type: 'boolean'}
 ViTB32 = True #@param{type:"boolean"}
 ViTB16 = True #@param{type:"boolean"}
-ViTL14 = True #@param{type:"boolean"}
+ViTL14 = False #@param{type:"boolean"}
 ViTL14_336px = False #@param{type:"boolean"}
 RN101 = True #@param{type:"boolean"}
-RN50 = True #@param{type:"boolean"}
-RN50x4 = True #@param{type:"boolean"}
-RN50x16 = True #@param{type:"boolean"}
+RN50 = False #@param{type:"boolean"}
+RN50x4 = False #@param{type:"boolean"}
+RN50x16 = False #@param{type:"boolean"}
 RN50x64 = False #@param{type:"boolean"}
 
 #@markdown #####**OpenCLIP settings:**
