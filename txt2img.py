@@ -296,7 +296,7 @@ def main():
 
                         #x_checked_image, has_nsfw_concept = check_safety(x_samples_ddim)
 
-                        x_checked_image_torch = torch.from_numpy(x_checked_image).permute(0, 3, 1, 2)
+                        x_checked_image_torch = torch.from_numpy(x_samples_ddim).permute(0, 3, 1, 2)
 
                         if not opt.skip_save:
                             for x_sample in x_checked_image_torch:
